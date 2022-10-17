@@ -1,15 +1,19 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Greeting from "./Greeting";
 
 function App() {
-  const [greeting, setGreeting] = useState("0")
-  
   return (
-    <h1>{greeting}</h1>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Greeting />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 ReactDOM.render(
